@@ -202,9 +202,3 @@ function calcularTrianguloIsosceles(lado1,lado2,base) {
     let resultado = calcularIsosceles(valueL1, valueL2, valueBase);
     alert(resultado);
 }
-
-
-
-
-
-

@@ -1,0 +1,58 @@
+var cupones = [
+    "CUPON40",
+    "CUPON50",
+    "CUPON60",
+]
+
+
+
+
+function calcularDescuento(precioOriginal,descuento){
+    let precioFinal = (precioOriginal * (100 - descuento))/100;
+
+    return precioFinal;    
+}
+
+function verificarCupon(cupon){
+    
+    let valorCupon = 0;
+
+    for (let i = 0; i < cupones.length; i++) {
+        cupon = cupones[i];
+        switch (cupon) {
+            case (cupon === "CUPON40"):
+                valorCupon = 40;
+                
+                break;
+    
+            case (cupon === "CUPON50"):
+                valorCupon = 50;
+                break;
+    
+            case (cupon === "CUPON60"):
+                valorCupon = 60;
+                break;
+    
+            default:
+                valorCupon = 0;
+                break;
+        }
+        return valorCupon;
+}
+
+function onClickDescuentos(){
+    let inputPrecio = document.getElementById("inputPrice");
+    let inputCupon = document.getElementById("inputCupon");
+
+    let valuePrecio = inputPrecio.value;
+    let valueCupon = inputCupon.value;
+
+    let valorDescuento = verificarCupon(valueCupon);
+    let precioFinal = calcularDescuento(valuePrecio,valorDescuento);
+
+    
+    let resultadoPrecio = document.getElementById("resultadoPrecio");
+    resultadoPrecio.innerText = `Precio final: ${precioFinal} $`;
+    // InnerTest es la forma de escribir en un parrafo HTML en JS
+
+}
